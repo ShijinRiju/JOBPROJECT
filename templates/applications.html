@@ -1,0 +1,47 @@
+{% extends 'admin_base.html' %}
+{% block header %}
+<div class="container mt-5 mb-4">
+    <div class="row">
+        <div class="col-md-6 shadow p-3">
+            <div class="single-defination">
+                <h4 class="mb-20 text-center">Applicant Details</h4>
+                <ul class="unordered-list">
+                    <li><b>Name: &nbsp;&nbsp;</b><span>{{data.user_id.name}}</span></li>
+                    <li><b>Email: &nbsp;&nbsp;</b><span>{{data.user_id.email}}</span></li>
+                    <li><b>Phone: &nbsp;&nbsp;</b><span>{{data.user_id.phone}}</span></li>
+                    <li><b>Education: &nbsp;&nbsp;</b><span>{{data.applicant_education}}</span></li>
+                    <li><b>Experience: &nbsp;&nbsp;</b><span>{{data.applicant_experience}}</span></li>
+                    <li><b>Internships or Courses: &nbsp;&nbsp;</b><span>{{data.applicant_internship}}</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6 shadow p-3">
+            <div class="single-defination">
+                <h4 class="mb-20 text-center">Job Details</h4>
+                <ul class="unordered-list">
+                    <li><b>Job Name: &nbsp;&nbsp;</b><span>{{data.job_id.job_title}}</span></li>
+                    <li><b>Company Name: &nbsp;&nbsp;</b><span>{{data.job_id.job_company}}</span></li>
+                    <li><b>Education Required: &nbsp;&nbsp;</b><span>{{data.job_id.job_education}}</span></li>
+                    <li><b>Experience Required: &nbsp;&nbsp;</b><span>{{data.job_id.job_experience}}</span></li>
+                    <li><b>Job Posted: &nbsp;&nbsp;</b><span>{{data.job_id.timestamp |date:"F j,Y"}}</span></li>
+                    <li><b>Application Deadline: &nbsp;&nbsp;</b><span>{{data.job_id.job_application_date}}</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5 mb-4">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+            <embed src="/static/files/{{data.applicant_cv}}" type="" height="450px">
+        </div>
+        <div class="col-lg-4"></div>
+    </div>
+    <div class="row mt-5 mb-4">
+        <div class="col-lg-6 text-center mb-4"><a href="/approve_application?id={{data.id}}"><button
+                    class="genric-btn primary-border e-large">Approve</button></a></div>
+        <div class="col-lg-6 text-center mb-4"><a href="/reject_application?id={{data.id}}"><button
+                    class="genric-btn danger-border e-large">Reject</button></a></div>
+    </div>
+</div>
+
+{% endblock %}

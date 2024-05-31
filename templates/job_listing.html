@@ -1,0 +1,127 @@
+{% extends 'user_base.html' %}
+{% block header %}
+{% load static %}
+<main>
+    <!-- Hero Area Start-->
+    <div class="slider-area ">
+        <div class="single-slider section-overly slider-height2 d-flex align-items-center"
+            data-background="assets/img/hero/about.jpg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hero-cap text-center">
+                            <h2>Get your job</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Hero Area End -->
+    <!-- Job List Area Start -->
+    <div class="job-listing-area pt-120 pb-120">
+        <div class="container">
+            <div class="row">
+                <!-- Left content -->
+
+                <!-- Right content -->
+                <div class="col-xl-12 col-lg-12 col-md-12">
+                    <!-- Featured_job_start -->
+                    <section class="featured-job-area">
+                        <div class="container">
+                            <!-- Count of Job list Start -->
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="count-job mb-35">
+                                        <span>{{ count }} Jobs found</span>
+                                        <!-- Select job items start -->
+                                        <div class="select-job-items">
+                                            <form method="GET" action="">
+                                                <input type="search" style="border: 1px solid rgb(155, 152, 152); padding: 10px 0;border-radius: 10px;" class="input-form" name="search-bar"
+                                                    id="search-bar" placeholder="Search" value="{{ query }}">
+                                                <button type="submit"
+                                                    class="genric-btn info circle mt-4">Search</button>
+                                            </form>
+                                        </div>
+                                        <!--  Select job items End-->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Count of Job list End -->
+                            <!-- single-job-content -->
+                            {% for item in pagination %}
+                            <div class="single-job-items mb-30 shadow p-3">
+                                <div class="job-items">
+                                    <div class="company-img">
+                                        <a href="#"><img src="{% static 'assets/img/logo/logo.png' %}"
+                                                alt="Company Logo" width="100px" height="100%"></a>
+                                    </div>
+                                    <div class="job-tittle job-tittle2">
+                                        {% if item.has_applied %}
+                                        <a href="/job_details?id={{item.job.id}}">
+                                            <h4>{{ item.job.job_title }}</h4>
+                                        </a>
+                                        {% else %}
+                                        <a href="/job_details?id={{item.job.id}}">
+                                            <h4>{{ item.job.job_title }}</h4>
+                                        </a>
+                                        {% endif %}
+                                        <ul>
+                                            <li>{{ item.job.job_company }}</li>
+                                            <li><i class="fas fa-map-marker-alt"></i>{{ item.job.job_location }}
+                                            </li>
+                                            <li>${{ item.job.job_initial_salary }} - ${{ item.job.job_final_salary }}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="items-link items-link2 f-right">
+                                    {% if item.has_applied %}
+                                    <a href="/job_details?id={{item.job.id}}" class="applied">Already applied</a>
+                                    {% else %}
+                                    <a href="/job_details?id={{item.job.id}}">{{ item.job.job_type }}</a>
+                                    {% endif %}
+                                    <span>{{ item.job.time_since_posted }}</span>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                    </section>
+                    <!-- Featured_job_end -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Job List Area End -->
+    <!--Pagination Start  -->
+    <div class="pagination-area pb-115 text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="single-wrap d-flex justify-content-center">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-start">
+                                {% if pagination.has_previous %}
+                                <li class="page-item"><a class="page-link"
+                                        href="?page={{pagination.previous_page_number}}"><span
+                                            class="ti-angle-left"></span></a></li>
+                                {% endif %}
+                                <li class="page-item active"><a class="page-link" href="#">{{pagination.number}}</a>
+                                </li>
+                                {% if pagination.has_next %}
+                                <li class="page-item"><a class="page-link"
+                                        href="?page={{pagination.next_page_number}}"><span
+                                            class="ti-angle-right"></span></a></li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Pagination End  -->
+
+</main>
+{% endblock %}

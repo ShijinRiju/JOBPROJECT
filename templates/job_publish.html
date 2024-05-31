@@ -1,0 +1,129 @@
+{% extends 'admin_base.html' %}
+{% block header %}
+<div class="slider-area ">
+    <div class="single-slider section-overly slider-height2 d-flex align-items-center"
+        data-background="assets/img/hero/about.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="hero-cap text-center">
+                        <h2>Job Publish</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 mb-30">
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="mt-10 col-lg-6">
+                        <input type="text" name="job_title" placeholder="Job Title" onfocus="this.placeholder = ''"
+                            onblur="this.placeholder = 'Job Title'" required class="single-input shadow p-3">
+                    </div>
+                    <div class="mt-10 col-lg-6">
+                        <input type="text" name="job_location" placeholder="Job Location"
+                            onfocus="this.placeholder = ''" onblur="this.placeholder = 'Job Location'" required
+                            class="single-input shadow p-3" title="District, State, Country">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mt-3 col-lg-12">
+                        <textarea class="single-textarea shadow p-3" name="description" placeholder="Job Description"
+                            onfocus="this.placeholder = ''" onblur="this.placeholder = 'Job Description'"
+                            style="height: 200px;" required></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mt-3 col-lg-12">
+                        <input type="text" name="skills" placeholder="Skills" onfocus="this.placeholder = ''"
+                            onblur="this.placeholder = 'Skills'" required class="single-input shadow p-3"
+                            title="Skill 1, Skill 2, Skill 3, etc..">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mt-3 col-lg-12">
+                        <input type="text" name="education" placeholder="Education required"
+                            onfocus="this.placeholder = ''" onblur="this.placeholder = 'Education required'" required
+                            class="single-input shadow p-3" title="Education 1,Education 2,Education 3, etc..">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mt-3 col-lg-12">
+                        <textarea class="single-textarea shadow p-3" name="experience" placeholder="Experience"
+                            onfocus="this.placeholder = ''" onblur="this.placeholder = 'Experience'"
+                            style="height: 200px;" required></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mt-3 col-lg-12">
+                        <textarea class="single-textarea shadow p-3" name="company_description"
+                            placeholder="Company Description" onfocus="this.placeholder = ''"
+                            onblur="this.placeholder = 'Company Description'" style="height: 200px;"
+                            required></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mt-3 col-lg-12">
+                        <input type="text" name="company_name" placeholder="Company Name"
+                            onfocus="this.placeholder = ''" onblur="this.placeholder = 'Company Name'" required
+                            class="single-input shadow p-3">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mt-3 col-lg-6">
+                        <input type="email" name="company_email" placeholder="Company Email"
+                            onfocus="this.placeholder = ''" onblur="this.placeholder = 'Company Email'" required
+                            class="single-input shadow p-3">
+                    </div>
+                    <div class="mt-3 col-lg-6">
+                        <input type="text" name="company_phone" placeholder="Company Phone Number"
+                            onfocus="this.placeholder = ''" onblur="this.placeholder = 'Company Phone Number'" required
+                            class="single-input shadow p-3">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mt-3 col-lg-12">
+                        <input type="text" name="job_type" placeholder="Job Type"
+                            onfocus="this.placeholder = ''" onblur="this.placeholder = 'Job Type'" required
+                            class="single-input shadow p-3">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mt-3 col-lg-12">
+                        <input type="text" name="job_vacancy" placeholder="Number of vacancies"
+                            onfocus="this.placeholder = ''" onblur="this.placeholder = 'Number of vacancies'" required
+                            class="single-input shadow p-3">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mt-3 col-lg-6">
+                        <input type="text" name="initial_salary" placeholder="Initial Salary"
+                            onfocus="this.placeholder = ''" onblur="this.placeholder = 'Initial Salary'" required
+                            class="single-input shadow p-3">
+                    </div>
+                    <div class="mt-3 col-lg-6">
+                        <input type="text" name="final_salary" placeholder="Final Salary"
+                            onfocus="this.placeholder = ''" onblur="this.placeholder = 'Final Salary'" required
+                            class="single-input shadow p-3">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mt-3 col-lg-12">
+                        <input type="date" name="application_date" required class="single-input shadow p-3">
+                        <label for="application_date" class="ml-2">Application Opened Until</label>
+                    </div>
+                </div>
+                <div class="row d-grid gap-7 col-2 mx-auto">
+                    <button class="genric-btn info circle mt-4" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

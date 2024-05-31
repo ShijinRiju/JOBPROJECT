@@ -1,0 +1,103 @@
+{% extends 'admin_base.html' %} {% block header %}
+<div class="slider-area ">
+    <div class="single-slider section-overly slider-height2 d-flex align-items-center"
+        data-background="assets/img/hero/about.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="hero-cap text-center">
+                        <h2>Applications</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 mb-5">
+    <h3>Pending</h3>
+    <div class="progress-table-wrap shadow p-3">
+        <div class="progress-table">
+            <div class="table-head">
+                <div class="serial">Job Id</div>
+                <div class="country">Job Name</div>
+                <div class="country">Company Name</div>
+                <div class="visit">Applicant Name</div>
+                <div class="visit">Status</div>
+                <div class="visit">View Application</div>
+            </div>
+            {% for i in data %}
+            <div class="table-row">
+                <div class="serial">{{i.id}}</div>
+                <div class="country">{{i.job_id.job_title}}</div>
+                <div class="country">{{i.job_id.job_company}}</div>
+                <div class="visit">{{i.user_id.name}}</div>
+                <div class="visit">{{i.status}}</div>
+                <div class="visit">
+                    <a href="/applications?id={{i.user_id.login_id_id}}"><button class="genric-btn danger circle mt-4"
+                            type="submit">
+                            View
+                        </button></a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <h3 class="mt-5">Approved</h3>
+    <div class="progress-table-wrap shadow p-3">
+        <div class="progress-table">
+            <div class="table-head">
+                <div class="serial">Job Id</div>
+                <div class="country">Job Name</div>
+                <div class="country">Company Name</div>
+                <div class="visit">Applicant Name</div>
+                <div class="visit">Status</div>
+                <!-- <div class="visit">View Application</div> -->
+            </div>
+            {% for i in approved_data %}
+            <div class="table-row">
+                <div class="serial">{{i.id}}</div>
+                <div class="country">{{i.job_id.job_title}}</div>
+                <div class="country">{{i.job_id.job_company}}</div>
+                <div class="visit">{{i.user_id.name}}</div>
+                <div class="visit">{{i.status}}</div>
+                <!-- <div class="visit">
+                    <a href="/applications?id={{i.user_id.login_id_id}}"><button class="genric-btn danger circle mt-4"
+                            type="submit">
+                            View
+                        </button></a>
+                </div> -->
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <h3 class="mt-5">Rejected</h3>
+    <div class="progress-table-wrap shadow p-3">
+        <div class="progress-table">
+            <div class="table-head">
+                <div class="serial">Job Id</div>
+                <div class="country">Job Name</div>
+                <div class="country">Company Name</div>
+                <div class="visit">Applicant Name</div>
+                <div class="visit">Status</div>
+                <!-- <div class="visit">View Application</div> -->
+            </div>
+            {% for i in rejected_data %}
+            <div class="table-row">
+                <div class="serial">{{i.id}}</div>
+                <div class="country">{{i.job_id.job_title}}</div>
+                <div class="country">{{i.job_id.job_company}}</div>
+                <div class="visit">{{i.user_id.name}}</div>
+                <div class="visit">{{i.status}}</div>
+                <!-- <div class="visit">
+                    <a href="/applications?id={{i.user_id.login_id_id}}"><button class="genric-btn danger circle mt-4"
+                            type="submit">
+                            View
+                        </button></a>
+                </div> -->
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends 'user_base.html' %}
+{% block header %}
+<div class="slider-area ">
+    <div class="single-slider section-overly slider-height2 d-flex align-items-center"
+        data-background="assets/img/hero/about.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="hero-cap text-center">
+                        <h2>Application</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 mb-30">
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="mt-10 col-lg-6">
+                        <input type="text" name="applicant_name" value="{{user.name}}" required
+                            class="single-input shadow p-3">
+                    </div>
+                    <div class="mt-10 col-lg-6">
+                        <input type="text" name="applicant_email" value="{{user.email}}" required
+                            class="single-input shadow p-3">
+                    </div>
+                </div>
+                <!-- <div class="row">
+                    <div class="mt-3 col-lg-12">
+                        <textarea class="single-textarea shadow p-3" name="description" placeholder="Job Description"
+                            onfocus="this.placeholder = ''" onblur="this.placeholder = 'Job Description'"
+                            style="height: 200px;" required></textarea>
+                    </div>
+                </div> -->
+                <div class="row">
+                    <div class="mt-3 col-lg-12">
+                        <input type="text" name="applicant_phone" value="{{user.phone}}" required
+                            class="single-input shadow p-3">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mt-3 col-lg-6">
+                        <input type="text" name="applicant_education" placeholder="Highest Education"
+                            onfocus="this.placeholder = ''" onblur="this.placeholder = 'Highest Education'" required
+                            class="single-input shadow p-3">
+                    </div>
+                    <div class="mt-3 col-lg-6">
+                        <input type="text" name="applicant_experience" placeholder="Experience"
+                            onfocus="this.placeholder = ''" onblur="this.placeholder = 'Experience'" required
+                            class="single-input shadow p-3">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mt-3 col-lg-12">
+                        <textarea class="single-textarea shadow p-3" name="applicant_internship"
+                            placeholder="Internships or Extra courses [If none, type None]"
+                            onfocus="this.placeholder = ''"
+                            onblur="this.placeholder = 'Internships or Extra courses [If none, type None]'"
+                            style="height: 200px;" required></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mt-3 col-lg-12">
+                        <input type="file" name="applicant_cv" required class="single-input shadow p-3">
+                        <label for="applicant_cv">Upload your CV</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mt-3 col-lg-12">
+                        <input type="text" name="applicant_job" value="{{data.job_title}}" required
+                            class="single-input shadow p-3" disabled>
+                    </div>
+                </div>
+                <div class="row d-grid gap-7 col-2 mx-auto">
+                    <button class="genric-btn info circle mt-4" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
